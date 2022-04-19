@@ -2,72 +2,59 @@
 using namespace std;
 //account number assignment
 
-long  i, j, n;
-bool searchList(const long[], double, long);
-void bubbleSort(long acc[], long n);
+int  i, j, n;
+bool searchList(const long[], int, long);
+void bubbleSort(long acc[], int n);
 bool flag;
 //adding the amount of numbers available to search
-const long  SIZE = 18;
+const int  SIZE = 18;
 int main()
 {
 
-	long acc[SIZE] = { 8149420, 5333174, 3080098, 6755963, 9526981, 
+	long acc[SIZE] = { 8149420, 5333174, 3080098, 6755963, 9526981,
                          4449539, 9387197, 5104726, 2931356, 4282637, 1750219, 
 		                 6086650, 3164838, 2419590, 4578589 ,9718904,6749941, 2545408 };
 
-	double accNum;
+	long accNum;
 //asking to input values
 	cout << "Please enter your account number: ";
 	cin >> accNum;
 
 	if (searchList(acc, SIZE, accNum))
-	{
 		cout << "Thank you for your number\n";
-	}
 	else
-	{
-		cout << "This is not correct." << endl;
-	}
-	 
-	bubbleSort(acc, SIZE);
+		cout << "This is not correct."<< endl;
+		bubbleSort(acc, SIZE );
 		cout << "Here is the numbers in order: ";
-		for (long i = 0; i < n; i++)
-		{
-			cout << acc[j] << " ";
-		}
+	for (int i = 0; i < n; i++)
+		cout << acc[i] << "";
 	return 0;
 		
 }
 //linear search to see if you have a correct account number
-bool searchList(const long list[], double numElems, long value)
+bool searchList(const long list[], int numElems, long value)
 {
 	bool found = false;
 
-	for (long  count = 0; count < numElems && !found; count++)
+	for (int  count = 0; count < numElems && !found; count++)
 	{
 	    if (list [count] == value)
 		found = true;
-	}
+}
 return found;
 }
 
+void bubbleSort(long acc[], int n)
+{for (i = 0; i < n; i++)
 
-void bubbleSort(long array[], long SIZE) 
-{
-	for (long step = 0; i < SIZE; ++step)
+	flag = false;
+	for (j = 0; j < n - i - 1; j++)
 	{
-		for (i = 0; i < n; i++)
-
-
-			flag = false;
-		for (j = 0; j < n - i - 1; j++)
+		if (acc[j] > acc[j + 1])
 		{
-			if (acc[j] > acc[j + 1])
-			{
-				swap(acc[j], acc[j + 1]);
+			swap(acc[j], acc[j + 1]);
 				flag = true;
-			}
 		}
-
 	}
+	
 }
